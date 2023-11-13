@@ -1,42 +1,18 @@
 pipeline PipelineAirports {
 
     block AirportsExtractor oftype HttpExtractor {
+        //import hyperlink
         url: "https://opendata.rhein-kreis-neuss.de/api/v2/catalog/datasets/rhein-kreis-neuss-flughafen-weltweit/exports/csv";
     }
 
-pipe {
-    from: AirportsExtractor;
-    to: AirportsTextFileInterpreter;
-}
+    block AirportsTextFileInterpreter oftype TextFileInterpreter {
 
-block AirportsTextFileInterpreter oftype TextFileInterpreter {
-
-}
-
-pipe {
-    from: AirportsTextFileInterpreter;
-    to: AirportsCSVInterpreter;
-}
-
-block AirportsCSVInterpreter oftype CSVInterpreter {
-    delimiter: ";";
-} 
-
-pipe {
-    from: AirportsCSVInterpreter;
-    to: NameHeaderWriter;
-}
-
-block NameHeaderWriter oftype CellWriter {
-    at: cell A1;
-    write: ["name"];
-}
-
-pipe {
-    from: NameHeaderWriter;
-    to: AirportsTableInterpreter;
-}
-
+    }
+    
+    block AirportsCSVInterpreter oftype CSVInterpreter {
+        delimiter: ";";
+    }
+    //assign data types to columns
     block AirportsTableInterpreter oftype TableInterpreter {
         header: true;
         columns: [
@@ -52,17 +28,19 @@ pipe {
                 "column_10" oftype decimal,
                 "column_11" oftype text,
                 "column_12" oftype text,
-                "geo_punkt" oftype text,
+                "geo_punkt" oftype text
         ];
     }
+    //load into sql lite 
+    block AirportsLoader oftype SQLiteLoader {
+        table: "airports";
+        file: "./airports.sqlite";
+    }
+    //chained pipelines for overview
+    AirportsExtractor
+        ->AirportsTextFileInterpreter
+        ->AirportsCSVInterpreter
+        ->AirportsTableInterpreter
+        ->AirportsLoader;
 
-pipe {
-    from: AirportsTableInterpreter;
-    to: AirportsLoader;
-}
-
-block AirportsLoader oftype SQLiteLoader {
-    table: "Airports";
-    file: "./airports.sqlite";
-}
 }
