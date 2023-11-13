@@ -52,7 +52,7 @@ pipe {
                 "column_10" oftype decimal,
                 "column_11" oftype text,
                 "column_12" oftype text,
-                "geo_punkt" oftype text
+                "geo_punkt" oftype text,
         ];
     }
 
