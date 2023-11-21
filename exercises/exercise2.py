@@ -2,6 +2,10 @@
 import sqlite3
 import pandas as pd
 
+#read data
+df = pd.read_csv(r"D:\FAU\Semester 3\MADE\Exercise 2\D_Bahnhof_2020_alle.csv")
+
+
 #create connection sqlite
 conn = sqlite3.connect('trainstops.sqlite')
 c = conn.cursor()
@@ -15,10 +19,8 @@ datatypes = {
             "Laenge": float,
             "Breite": float,
             "Betreiber_Name": str,
-            "Betreiber_Nr": int
+            "Betreiber_Nr": int,
         }
-#read data
-df = pd.read_csv(r"D:\FAU\Semester 3\MADE\Exercise 2\D_Bahnhof_2020_alle.csv")
 
 #sort out invalid data
 #drop the Status column
@@ -40,4 +42,5 @@ df = df[df['IFOPT'].str.extract(regex)]
 df = df.dropna(inplace=False)
 df = df.astype(datatypes)
 
+#create sqlite
 df.to_sql('trainstops', conn, if_exists='replace', index=False)
