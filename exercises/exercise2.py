@@ -1,46 +1,60 @@
-#import libraries 
-import sqlite3
 import pandas as pd
+import io
+import re
+from sqlalchemy import create_engine
 
-#read data
-df = pd.read_csv(r"D:\FAU\Semester 3\MADE\Exercise 2\D_Bahnhof_2020_alle.csv")
+# Step 1: Train stops data Extraction from provided CSV File
+csv_url = "https://download-data.deutschebahn.com/static/datasets/haltestellen/D_Bahnhof_2020_alle.CSV"
 
 
-#create connection sqlite
-conn = sqlite3.connect('trainstops.sqlite')
-c = conn.cursor()
-c.execute('''CREATE TABLE trainstops (EVA_NR INT, DS100 VARCHAR, IFOPT TEXT, NAME TEXT, Verkehr TEXT, Laenge FLOAT, Breite FLOAT, Betreiber_Name TEXT, Betreiber_Nr INT)''')
-datatypes = {
-            "EVA_NR": int,
-            "DS100": str,
-            "IFOPT": str,
-            "NAME": str,
-            "Verkehr": str,
-            "Laenge": float,
-            "Breite": float,
-            "Betreiber_Name": str,
-            "Betreiber_Nr": int,
-        }
+# Step 2: Train stops CSV Data Transformation
+df = pd.read_csv(csv_url, delimiter=';')
 
-#sort out invalid data
-#drop the Status column
-df = df.drop(['Status'], axis=1)
+# Requirement 1: Drop the "Status" column
+del df["Status"]
 
-#Valid "Verkehr" values are "FV", "RV", "nur DPN"
-valid_verkehr_values = ['FV', 'RV', 'nur DPN']
-df = df[df['Verkehr'].isin(valid_verkehr_values)]
+# Requirement 2: Drop rows with invalid values
+valid_verkehr = {"FV": None, "RV": None, "nur DPN": None}
 
-#Valid "Laenge", "Breite" values are geographic coordinate system values between and including -90 and 90
-df = df[(df['Laenge'] >= -90.0) & (df['Laenge'] <= 90.0)]
-df = df[(df['Breite'] >= -90.0) & (df['Breite'] <= 90.0)]
+# Requirement 3: Drop rows with invalid values
+df = df.dropna(axis=0, how='any')  # Drop rows with any empty cells
+df = df.query("Verkehr in @valid_verkehr")
 
-#Valid "IFOPT" pattern in regex
-regex = r"^[a-zA-Z]{2}:\d+:\d+(:\d+)?$"
-df = df[df['IFOPT'].str.extract(regex)]
+# Requirement 4: Validate IFOPT values based on the specified pattern
+pattern = re.compile(r"^\w{2}:\d+:\d+(?::\d+)?$")
+valid_ifopt = df["IFOPT"].astype(str).str.contains(pattern, regex=True)
+df = df.loc[valid_ifopt]
 
-#Empty cells are considered invalid
-df = df.dropna(inplace=False)
-df = df.astype(datatypes)
+# Replacing , with . 
 
-#create sqlite
-df.to_sql('trainstops', conn, if_exists='replace', index=False)
+df['Laenge'] = df['Laenge'].str.replace(r',', '.')
+df['Breite'] = df['Breite'].str.replace(r',', '.')
+
+df['Laenge'] = df['Laenge'].astype(float)
+df = df.query("-90 <= Laenge <= 90")
+
+df['Breite'] = df['Breite'].astype(float)
+df = df.query("-90 <= Breite <= 90")
+
+
+# Step 3: Data Loading
+#db_engine = create_engine("sqlite:///trainstops.sqlite")
+table_name = "trainstops"
+
+# Define column data types
+column_types = {
+    "DS100": str,
+    "EVA_NR": int,
+    "Laenge": float,
+    "Breite": float,
+    "Verkehr": str,
+    "IFOPT": str,
+    "NAME": str,
+    "Betreiber_Name": str,
+    "Betreiber_Nr": int
+    
+    
+}
+df = df.astype(column_types)
+# Create table and insert data
+df.to_sql(table_name, 'sqlite:///trainstops.sqlite', if_exists="replace", index=False)
