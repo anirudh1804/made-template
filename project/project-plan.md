@@ -17,15 +17,15 @@ This data engineering project aims to investigate the relationship between tempe
 <!-- Describe each datasources you plan to use in a section. Use the prefic "DatasourceX" where X is the id of the datasource. -->
 
 ### Datasource1: Trends in global CO2 emissions
-* Metadata URL: /kaggle/input/co2-ghg-emissionsdata/co2_emission.csv
+* Metadata URL: https://www.kaggle.com/datasets/yoannboyere/co2-ghg-emissionsdata/download?datasetVersionNumber=1
 * Data URL: https://www.kaggle.com/code/fehmifratpolat/trends-in-global-co2-emissions
 * Data Type: CSV
 
 The dataset contains CO2 emissions data for India. It can be used for conducting statistical analyses, creating visualizations and generating insights to address the rising temperature problem in India. The data has been collected from OurWorldInData, licesenced as Attribution 4.0 International (CC BY 4.0).
 
 ### Datasource2: Temperatures in India
-* Metadata URL: https://www.kaggle.com/datasets/venky73/temperatures-of-india
-* Data URL: https://www.kaggle.com/datasets/venky73/temperatures-of-india/download?datasetVersionNumber=1
+* Metadata URL: https://www.kaggle.com/datasets/venky73/temperatures-of-india/download?datasetVersionNumber=1
+* Data URL: https://www.kaggle.com/datasets/venky73/temperatures-of-india
 * Data Type: CSV
 
 Data consists of temperatures of India averaging the temperatures of all places. Temperatures values are recorded in celsius. The Data is of INDIAN GOVT. collected from the official Indian government website.
