@@ -24,4 +24,4 @@ jobs:
         pip install pytest
 
     - name: Run Tests
-      run: pytest
+      run: pytest ./main/project/tests.sh
