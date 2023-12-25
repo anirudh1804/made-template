@@ -36,8 +36,8 @@ Data consists of temperatures of India averaging the temperatures of all places.
 
 1. Data Preparation: Sort, subset,remove unwanted data and arrange the rows and columns.
 2. Data Integration: Compare the behaviour of datasets based on a common factor.
-3. Data Analysis and visualisation: Calculate summary statistics and create visualizations to explore trends and patterns.
-4. Correlation Analysis: TODO:Calculate correlation coefficients and perform hypothesis testing to determine the strength and significance of the relationship.
+3. Data Analysis and visualisation: Analyse the behaviour of data and create visualizations to explore trends.
+4. Correlation Analysis: Calculate correlation coefficients, covariance and correlation matrices to determine the relationship between both datasets.
 5. Drawing Conclusions: TODO:Present findings regarding the correlation between temperature and CO2 emissions in India.
 
 [i1]: https://github.com/jvalue/made-template/issues/1
