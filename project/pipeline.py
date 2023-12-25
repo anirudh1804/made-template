@@ -29,10 +29,10 @@ import matplotlib.pyplot as plt
 df2 = pd.read_csv("../data/co2_emission.csv")
 df2.head()
 #sort the data
-df2 = df.sort_values(by='Entity', ascending=True)
+df2 = df2.sort_values(by='Entity', ascending=True)
 #only select the data for India between 2010 and 2017
-df2 = df[(df["Entity"] == "India") & (df["Year"] >= 2010)]
-df2 = df.drop(['Code'], axis=1)
+df2 = df2[(df2["Entity"] == "India") & (df2["Year"] >= 2010)]
+df2 = df2.drop(['Code'], axis=1)
 # Rename the 'Entity' column to 'Country'
 df2.rename(columns={'Entity': 'Country'}, inplace=True)
 df2.rename(columns={'Annual CO₂ emissions (tonnes )': 'emmissionslarge'}, inplace=True)
