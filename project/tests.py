@@ -4,7 +4,7 @@
 set -e
 
 # Define paths
-data="C:\\Users\\zucky\\OneDrive\\Desktop\\made-template\\project\\pipeline.py"
+data="pipeline.py"
 
 # Validate that the Python script exists
 if [ -e "$data" ]; then
@@ -14,8 +14,8 @@ else
     exit 1
 fi
 
-SQLITE_FILE="C:\Users\zucky\OneDrive\Desktop\made-template\project\merged_data.sqlite"
-if [ -e "$SQLITE_FILE" ]; then
+sqlite="merged_data.sqlite"
+if [ -e "$sqlite" ]; then
     echo "Test passed: SQLite file exists."
 else
     echo "Test failed: SQLite file does not exist."
