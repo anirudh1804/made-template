@@ -21,5 +21,5 @@ jobs:
     - name: Run tests
       run: |
         cd project
-        # chmod +x tests.sh
+        chmod +x tests.sh
         bash ./tests.sh
