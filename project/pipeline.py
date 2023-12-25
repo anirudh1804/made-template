@@ -44,7 +44,7 @@ df2.head(10)
 merged_df = pd.merge(df1, df2, left_on='ANNUAL', right_on='emmissionslarge', how='inner')
 
 # Save the merged DataFrame to an SQLite file
-sqlite_file_path = 'merged_data.db'
+sqlite_file_path = 'merged_data.sqlite'
 merged_df.to_sql('merged_data', sqlite_file_path, index=False, if_exists='replace')
 
 print("Merged data saved to SQLite file:", sqlite_file_path)
