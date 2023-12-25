@@ -19,4 +19,7 @@ jobs:
         python-version: 3.12.1
 
     - name: Run tests
-      run: bash tests.sh
+      run: |
+        cd project
+        chmod +x tests.sh
+        ./tests.sh
