@@ -10,7 +10,7 @@ Is there a statistically significant correlation between temperature and CO2 emi
 
 ## Description
 
-This data engineering project aims to investigate the relationship between temperature and CO2 emissions in India during the last decade. Both temperature and CO2 emissions from industrial factories and vehichles are crucial factors that can significantly impact the environment and public health. Understanding their correlation can provide valuable insights into how changes in CO2 emissions affect temperatures in the Indian context.
+This data engineering project aims to investigate the relationship between temperature and CO2 emissions in India during the last decade. Both temperature and CO2 emissions from industrial factories and vehichles are crucial factors that can significantly impact the environment and public health. Understanding their correlation can provide valuable insights about changes in CO2 emissions and how it affects temperatures in India.
 
 ## Datasources
 
@@ -18,7 +18,7 @@ This data engineering project aims to investigate the relationship between tempe
 
 ### Datasource1: Trends in global CO2 emissions
 * Metadata URL: https://www.kaggle.com/datasets/yoannboyere/co2-ghg-emissionsdata/download?datasetVersionNumber=1
-* Data URL: https://www.kaggle.com/code/fehmifratpolat/trends-in-global-co2-emissions
+* Data URL: https://www.kaggle.com/datasets/yoannboyere/co2-ghg-emissionsdata
 * Data Type: CSV
 
 The dataset contains CO2 emissions data for India. It can be used for conducting statistical analyses, creating visualizations and generating insights to address the rising temperature problem in India. The data has been collected from OurWorldInData, licesenced as Attribution 4.0 International (CC BY 4.0).
