@@ -2,15 +2,15 @@
 
 ## Title
 
-Impact of CO2 emissions on the rise of temperature in India over the last decade.
+Exploring the correlation between Co2 emissions and temperatures in certain time period
 
 ## Main Question
 
-Is there a statistically significant correlation between temperature and CO2 emissions in India during a specific time period?
+Is there any correlation between Co2 emmissions and temperatures during a certain time period?
 
 ## Description
 
-This data engineering project aims to investigate the relationship between temperature and CO2 emissions in India during the last decade. Both temperature and CO2 emissions from industrial factories and vehichles are crucial factors that can significantly impact the environment and public health. Understanding their correlation can provide valuable insights about changes in CO2 emissions and how it affects temperatures in India.
+This data engineering project aims at analysing whether Co2 emmissions are correlated with temperature in India. In our analysis, we investigate the relationship between carbon dioxide (CO2) emissions and global temperatures over a set of years, using a common base of time—specifically, the year. Our examination comprises of using and combining visualizations and statistical measures to check for correlation between these two crucial variables.
 
 ## Datasources
 
@@ -35,9 +35,6 @@ Data consists of temperatures of India averaging the temperatures of all places.
 <!-- List of work packages ordered sequentially, each pointing to an issue with more details. -->
 
 1. Data Preparation: Sort, subset,remove unwanted data and arrange the rows and columns.
-2. Data Integration: Compare the behaviour of datasets based on a common factor.
-3. Data Analysis and visualisation: Analyse the behaviour of data and create visualizations to explore trends.
-4. Correlation Analysis: Calculate correlation coefficients, covariance and correlation matrices to determine the relationship between both datasets.
-5. Drawing Conclusions: TODO:Present findings regarding the correlation between temperature and CO2 emissions in India.
-
-[i1]: https://github.com/jvalue/made-template/issues/1
+2. Data Analysis and visualisation: Analyse the behaviour of data and create visualizations to explore trends.
+3. Correlation Analysis: Calculate correlation coefficients, covariance and correlation matrices to determine changes.
+4. Drawing Conclusions: TODO:Present findings regarding the correlation between temperature and CO2 emissions in India.
