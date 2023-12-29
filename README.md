@@ -9,9 +9,9 @@ This data engineering project aims to determine whether Co2 emissions and temper
 The analysis is performed on the basis of a common base of time - year. Various statistical metrics and visualisation graphs are used to determine and depict the relation between both the factors.
 
 This project aims to investigate the following aspects:
-	1. Is there any change in temperature between 2010 and 2017?
- 	2. Is there any change in Co2 emissions between 2010 and 2017?
-  	3. Is there any correlation between Co2 emmissions and temperatures during a certain time period?
+1. Is there any change in temperature between 2010 and 2017?
+2. Is there any change in Co2 emissions between 2010 and 2017?
+3. Is there any correlation between Co2 emmissions and temperatures during a certain time period?
 
 As downloading and extracting the dataset was not possible directly. I have added the datasets in the 'data' folder. Please download my MADE project from github if you want to run my project.
 
