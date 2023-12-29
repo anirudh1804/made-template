@@ -1,12 +1,21 @@
 # Methods of Advanced Data Engineering Template Project
 
-This template project provides some structure for your open data project in the MADE module at FAU.
-This repository contains (a) a data science project that is developed by the student over the course of the semester, and (b) the exercises that are submitted over the course of the semester.
+This project provides a structure for my open data project in the MADE module at FAU. This repository contains (a) a data science project that was developed by me over the course of the semester, and (b) the exercises that are submitted over the course of the semester.
 Before you begin, make sure you have [Python](https://www.python.org/) and [Jayvee](https://github.com/jvalue/jayvee) installed. We will work with [Jupyter notebooks](https://jupyter.org/). The easiest way to do so is to set up [VSCode](https://code.visualstudio.com/) with the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter).
 
 
-## Project Work
-Your data engineering project will run alongside lectures during the semester. We will ask you to regularly submit project work as milestones so you can reasonably pace your work. All project work submissions **must** be placed in the `project` folder.
+## Project Work: Analyze the correlation between Co2 emissions and temperature in India during a certain period of time.
+This data engineering project aims to determine whether Co2 emissions and temperature are related to each other or not.
+The analysis is performed on the basis of a common base of time - year. Various statistical metrics and visualisation graphs are used to determine and depict the relation between both the factors.
+
+This project aims to investigate the following aspects:
+	1. Is there any change in temperature between 2010 and 2017?
+ 	2. Is there any change in Co2 emissions between 2010 and 2017?
+  	3. Is there any correlation between Co2 emmissions and temperatures during a certain time period?
+
+As downloading and extracting the dataset was not possible directly. I have added the datasets in the 'data' folder. Please download my MADE project from github if you want to run my project.
+
+All project work submissions are present in the `project` folder.
 
 ### Exporting a Jupyter Notebook
 Jupyter Notebooks can be exported using `nbconvert` (`pip install nbconvert`). For example, to export the example notebook to html: `jupyter nbconvert --to html examples/final-report-example.ipynb --embed-images --output final-report.html`
