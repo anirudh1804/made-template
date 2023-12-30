@@ -17,6 +17,11 @@ As downloading and extracting the dataset was not possible directly. I have adde
 
 All project work submissions are present in the `project` folder.
 
+Insights to my project:
+1. Link to my project report: [report.ipynb](https://github.com/anirudh1804/made-template/blob/main/project/report.ipynb)
+2. Link to my project presentation video: [presentation-video.mp4](https://www.python.org/)
+3. Link to my project presentation slides: [slides.pdf](https://github.com/anirudh1804/made-template/blob/main/project/slides.pdf)
+
 ### Exporting a Jupyter Notebook
 Jupyter Notebooks can be exported using `nbconvert` (`pip install nbconvert`). For example, to export the example notebook to html: `jupyter nbconvert --to html examples/final-report-example.ipynb --embed-images --output final-report.html`
 
